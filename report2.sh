@@ -22,8 +22,10 @@ touch merge
 
 while [ $i -le $line1 ]
 do
-	rec="$(awk 'NR=='$i'{print;}' $file1)"
-	echo $rec >> merge
+	#rec="$(awk 'NR=='$i'{print $0}' $file1)"
+	 awk 'NR=='$i'{print $0}' $file1 > temp
+	 cat temp >> merge
+	#echo $rec >> merge
 	i=`expr $i + 1`
 done
 
@@ -35,15 +37,19 @@ j=$i
 
 while [ $i -lt $line2 ] 
 do
-	fileRec=$(awk 'NR=='$i'{print;}' $file1)
-	echo $fileRec >> merge
+	#fileRec=$(awk 'NR=='$i'{print;}' $file1)
+	#echo $fileRec >> merge
+	awk 'NR=='$i'{print $0}' $file1 > temp
+         cat temp >> merge
 	i=`expr $i + 1`
 done
 
 while [ $j -lt $line2 ]
 do
-        fileRec=$(awk 'NR=='$j'{print;}' $file2)
-        echo $fileRec >> merge
+        #fileRec=$(awk 'NR=='$j'{print;}' $file2)
+        #echo $fileRec >> merge
+	awk 'NR=='$j'{print $0}' $file2 > temp
+         cat temp >> merge
         j=`expr $j + 1`
 done
 
@@ -54,8 +60,10 @@ done
 
 while [ "$i" -lt "$line3" ]
 do
-	fileRec=$(awk 'NR=='$i'{print;}' $file1)
-	echo $fileRec >> merge
+	#fileRec=$(awk 'NR=='$i'{print;}' $file1)
+	#echo $fileRec >> merge
+	awk 'NR=='$i'{print $0}' $file1 > temp
+         cat temp >> merge
 	i=`expr $i + 1`
 done
 
@@ -63,8 +71,10 @@ j=`expr $j + 1`
 
 while [ "$j" -lt "$line3" ]
 do
-        fileRec=$(awk 'NR=='$j'{print;}' $file2)
-        echo $fileRec >> merge
+        #fileRec=$(awk 'NR=='$j'{print;}' $file2)
+        #echo $fileRec >> merge
+	awk 'NR=='$j'{print $0}' $file2 > temp
+         cat temp >> merge
         j=`expr $j + 1`
 done
 
@@ -77,8 +87,10 @@ eof=$(awk 'END{print NR}' $file1)
 
 while [ "$i" -le "$eof" ]
 do
-        fileRec=$(awk 'NR=='$i'{print;}' $file1)
-        echo $fileRec >> merge
+        #fileRec=$(awk 'NR=='$i'{print;}' $file1)
+        #echo $fileRec >> merge
+	awk 'NR=='$i'{print $0}' $file1 > temp
+         cat temp >> merge
         i=`expr $i + 1`
 done
 
@@ -86,11 +98,13 @@ j=`expr $j + 1`
 
 while [ "$j" -le "$eof" ]
 do
-        fileRec=$(awk 'NR=='$j'{print;}' $file2)
-        echo $fileRec >> merge
+        #fileRec=$(awk 'NR=='$j'{print;}' $file2)
+        #echo $fileRec >> merge
+	awk 'NR=='$j'{print $0}' $file2 > temp
+         cat temp >> merge
         j=`expr $j + 1`
 done
-
+rm temp
 else
 	echo "Missing parameters."
 	echo "Accepts two parameters."
