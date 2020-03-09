@@ -12,7 +12,7 @@ will work only for two files
 like - bash Script_Version_0.1.sh file1 file2
 
 
-VERSION 0.2 
+VERSION 0.2 :- 
 Version 0.1 script file is updated to Version 0.2.
 
 Whats new :- 
@@ -20,14 +20,14 @@ Whats new :-
 like - bash Script_Version_0.2.sh file_1 file_2 file_3 .... file_n
 
 
-VERSION 0.3
+VERSION 0.3 :- 
 Version 0.2 script file is updated to version 0.3
 
 Whats new :-
 - takes first argument as a name of the merge file.
 - after first argument , can specify multiple file for merging.
 
-like - bash Script_Version_0.3.sh <name of the merge file> file_1 file_2 .... file_n
+like - bash Script_Version_0.3.sh name_of_the_merge_file file_1 file_2 .... file_n
 
 
 
